@@ -11,7 +11,6 @@
 #include <unistd.h>
 
 int display_pal(char *str);
-int check_pal(char *str, int start);
 int my_putstr(char const *str);
 void my_putchar(char c);
 int my_strlen(char const *str);
