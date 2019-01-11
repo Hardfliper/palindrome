@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
     if (ac == 1) {
-        write(2, "Error: missing arguments.\n", 25);
+        write(2, "Error: missing arguments.\n", 26);
         return (84);
     }
     if (ac == 2) {

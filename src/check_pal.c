@@ -18,10 +18,10 @@ int check_pal(char *str, int start)
         pal_or_not = 1;
         if (str[start] == str[end] ||
             str[start] > 'A' && str[start] < 'Z' &&
-            str[start] == str[end] + 32) 
+            str[start] == str[end] + 32)
             pal_or_not = 0;
         if (str[start] > 'a' && str[start] < 'z' &&
-            str[start] == str[end] + 32)
+            str[start] == str[end] - 32)
             pal_or_not = 0;
         start = start + 1;
         end = end - 1;
