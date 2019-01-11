@@ -22,6 +22,12 @@ Test(display_pal, not_pal, .init = redirect_all_std)
     cr_assert_stdout_eq_str("not a palindrome.\n");
 }
 
+Test(display_pal, one_letter, .init = redirect_all_std)
+{
+    display_pal("a");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
+
 Test(display_pal, pal_simple, .init = redirect_all_std)
 {
     display_pal("azeeza");

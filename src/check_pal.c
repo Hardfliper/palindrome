@@ -35,6 +35,10 @@ int check_pal(char *str, int start,
 
 int display_pal(char *str)
 {
+    if (my_strlen(str) == 1) {
+        my_putstr("palindrome!\n"); 
+        return (0);
+    }
     if (check_pal(str, 0, my_strlen(str), 1) == 1)
         my_putstr("not a palindrome.\n");
     else
