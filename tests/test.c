@@ -57,3 +57,15 @@ Test(display_pal, number, .init = redirect_all_std)
     display_pal("123321");
     cr_assert_stdout_eq_str("palindrome!\n");
 }
+
+Test(main, error_gest, .init = redirect_all_std)
+{
+    system("./palindrome");
+    cr_assert_stderr_eq_str("Error: missing arguments.\n");
+}
+
+Test(main, error_gest_too_much_arg, .init = redirect_all_std)
+{
+    system("./palindrome too much argument");
+    cr_assert_stderr_eq_str("Usage : ./palindrome [argument]\n");
+}
