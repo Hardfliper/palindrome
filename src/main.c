@@ -13,10 +13,11 @@ int main(int ac, char **av)
         write(2, "Error: missing arguments.\n", 26);
         return (84);
     }
-    if (ac == 2) {
-        if (display_pal(av[1]) == 1)
-            return (84);
-        else
-            return (0);
+    if (ac == 2)
+        display_pal(av[1]);
+    if (ac > 2) {
+        write(2, "Usage : ./palindrome [argument]\n", 32);
+        return (84);
     }
+    return (0);
 }
