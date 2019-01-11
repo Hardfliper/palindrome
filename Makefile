@@ -32,7 +32,7 @@ $(NAME)	:	$(OBJ)
 		gcc -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
 
 test_run:
-	gcc -o $(CRITNAME) $(NOMAIN) $(TEST) $(LDFLAGS) --coverage -lcriterion
+	gcc -o $(CRITNAME) src/check_pal.o $(TEST) $(LDFLAGS) --coverage -lcriterion
 	./unit_test
 
 clean	:
