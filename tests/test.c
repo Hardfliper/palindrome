@@ -28,3 +28,32 @@ Test(display_pal, pal_simple, .init = redirect_all_std)
     cr_assert_stdout_eq_str("palindrome!\n");
 }
 
+Test(display_pal, pal_semi_maj, .init = redirect_all_std)
+{
+    display_pal("azeEZA");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
+
+Test(display_pal, pal_starting_maj, .init = redirect_all_std)
+{
+    display_pal("AZEeza");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
+
+Test(display_pal, mid_maj, .init = redirect_all_std)
+{
+    display_pal("azeEza");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
+
+Test(display_pal, mid_maj2, .init = redirect_all_std)
+{
+    display_pal("azEeza");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
+
+Test(display_pal, number, .init = redirect_all_std)
+{
+    display_pal("123321");
+    cr_assert_stdout_eq_str("palindrome!\n");
+}
