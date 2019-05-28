@@ -6,7 +6,6 @@
 */
 
 #include "my.h"
-#include <stdio.h>
 
 int check_pal(char *str, int start,
               int end, int pal_or_not)
