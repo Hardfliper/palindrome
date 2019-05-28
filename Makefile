@@ -8,7 +8,8 @@
 SRC	=	src/main.c	\
 		src/check_pal.c
 
-NOMAIN	=	src/check_pal.c	\
+NOMAIN	=	tests/test.c	\
+		src/check_pal.c	\
 
 NAME	=	palindrome
 
@@ -18,9 +19,11 @@ CPPFLAGS =	-I ./include
 
 LDFLAGS	=	-L ./lib/my/ -lmy
 
+CRITERION =	--coverage -lcriterion
+
 OBJ	=	$(SRC:.c=.o)
 
-TEST	=	./tests/test.c
+OBJ_TEST=	$(NOMAIN:.c=.o)
 
 TEMP     =	*.gcno	\
 		*.gcda
@@ -31,9 +34,10 @@ $(NAME)	:	$(OBJ)
 		make -C ./lib/my/
 		gcc -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
 
-test_run:
-	gcc -o $(CRITNAME) src/check_pal.o $(TEST) $(LDFLAGS) --coverage -lcriterion
-	./unit_test
+tests_run:	$(OBJ)
+		make -C ./lib/my/
+		gcc -o $(CRITNAME) $(NOMAIN) $(LDFLAGS) $(CRITERION) $(CPPFLAGS)
+		./unit_test
 
 clean	:
 		rm -f $(OBJ)

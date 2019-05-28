@@ -9,7 +9,6 @@
 #include <criterion/redirect.h>
 #include "../include/my.h"
 
-
 void redirect_all_std(void)
 {
     cr_redirect_stdout();
